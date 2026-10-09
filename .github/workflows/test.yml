@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: Test
         run: |
-          ls "C:\Program Files\Git"
+          ls "C:\Program Files\Git\ucrt64\etc\ssl\cert.pem"
         shell: pwsh
