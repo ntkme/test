@@ -1,0 +1,12 @@
+name: test
+
+on: [push]
+
+jobs:
+  run-task:
+    runs-on: windows-2022
+    steps:
+      - name: Test
+        run: |
+          ls "C:\Program Files\Git"
+        shell: pwsh
