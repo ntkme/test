@@ -21,4 +21,4 @@ jobs:
           bundler-cache: true
 
       - name: Test
-        run: bundle exec ruby -r sass-embedded -e "puts Sass.info"
+        run: bundle exec ruby -e "require 'sass-embedded'; puts Sass.info"
