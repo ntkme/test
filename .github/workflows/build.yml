@@ -22,3 +22,7 @@ jobs:
 
       - name: Test
         run: bundle exec ruby -e "require 'sass-embedded'; puts Sass.const_get(:CLI)::COMMAND"
+
+      - name: Check
+        run: Get-AuthenticodeSignature -FilePath D:/a/test/test/vendor/bundle/ruby/4.1.0+5/gems/sass-embedded-1.107.0-x64-mswin64/lib/sass/dart-sass/src/dart.exe
+        shell: pwsh
