@@ -1,0 +1,39 @@
+name: build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - windows-latest
+        ruby-version:
+          - '2.0'
+          - '2.3'
+          - '3.2'
+          - '3.3'
+          - '3.4'
+          - '4.0'
+
+    steps:
+
+      - name: Setup ruby
+        if: matrix.ruby-version
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+
+      - name: Test
+        run: ruby -r openssl -e 'puts OpenSSL::X509::DEFAULT_CERT_FILE'
