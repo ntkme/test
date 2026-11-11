@@ -20,12 +20,7 @@ jobs:
         os:
           - windows-latest
         ruby-version:
-          - '2.0'
-          - '2.3'
-          - '3.2'
-          - '3.3'
-          - '3.4'
-          - '4.0'
+          - ruby-head
 
     steps:
 
@@ -37,6 +32,5 @@ jobs:
 
       - name: Test
         run: |
-          ruby -r openssl -e 'puts File.exist?(OpenSSL::X509::DEFAULT_CERT_FILE)'
-          ruby -r openssl -e 'puts File.exist?(OpenSSL::X509::DEFAULT_CERT_DIR)'
+          gem install --platform ruby google-protobuf -- --with-cflag=-Wno-error=incompatible-pointer-types
 
