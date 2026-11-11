@@ -32,7 +32,9 @@ jobs:
 
       - name: Test
         run: |
-          gem install --platform ruby google-protobuf -- --with-cflag=-Wno-error=incompatible-pointer-types
+          gem install --platform ruby google-protobuf
+        env:
+          CFLAGS: -Wno-error=incompatible-pointer-types
 
       - name: Debug
         if: failure()
