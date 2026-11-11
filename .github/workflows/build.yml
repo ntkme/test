@@ -37,6 +37,6 @@ jobs:
 
       - name: Test
         run: |
-          ruby -r openssl -e 'puts OpenSSL::X509::DEFAULT_CERT_FILE'
-          ruby -r openssl -e 'puts OpenSSL::X509::DEFAULT_CERT_DIR'
+          ruby -r openssl -e 'puts File.exist?(OpenSSL::X509::DEFAULT_CERT_FILE)'
+          ruby -r openssl -e 'puts File.exist?(OpenSSL::X509::DEFAULT_CERT_DIR)'
 
