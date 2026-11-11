@@ -32,7 +32,7 @@ jobs:
 
       - name: Test
         run: |
-          gem install --verbose --platform ruby google-protobuf -- --with-arch_flag=-Wno-error=incompatible-pointer-types
+          gem install --verbose --platform ruby google-protobuf -- -- --with-arch_flag=-Wno-error=incompatible-pointer-types
 
       - name: Debug
         if: failure()
