@@ -37,5 +37,5 @@ jobs:
       - name: Debug
         if: failure()
         run: |
-          cat D:/rubyinstaller-head-x64/lib/ruby/gems/4.1.0+6/gems/google-protobuf-4.36.2/Makefile
+          cat D:/rubyinstaller-head-x64/lib/ruby/gems/4.1.0+6/gems/google-protobuf-4.36.2/ext/google/protobuf_c/Makefile
 
