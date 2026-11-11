@@ -36,4 +36,7 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
 
       - name: Test
-        run: ruby -r openssl -e 'puts OpenSSL::X509::DEFAULT_CERT_FILE'
+        run: |
+          ruby -r openssl -e 'puts OpenSSL::X509::DEFAULT_CERT_FILE'
+          ruby -r openssl -e 'puts OpenSSL::X509::DEFAULT_CERT_DIR'
+
