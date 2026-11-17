@@ -26,7 +26,7 @@ jobs:
 
       - name: Setup ruby
         if: matrix.ruby-version
-        uses: ruby/setup-ruby@v1.338.0
+        uses: ruby/setup-ruby@v1.339.0
         with:
           ruby-version: ${{ matrix.ruby-version }}
 
