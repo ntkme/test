@@ -44,3 +44,7 @@ jobs:
           echo "${env:PKG_CONFIG}"
 
           gem install fiddle
+
+      - name: Debug
+        if: failure()
+        run: cat D:/ruby-head-x64-mswin64_140/lib/ruby/gems/4.1.0+6/gems/fiddle-1.1.8/Makefile
