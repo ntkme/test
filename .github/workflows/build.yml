@@ -38,6 +38,7 @@ jobs:
         run: |
           ruby -ropenssl -e 'puts OpenSSL::OPENSSL_VERSION'
           ruby -ropenssl -e 'puts OpenSSL::OPENSSL_LIBRARY_VERSION'
+          ruby -ropen-uri -e 'puts URI.send(:open, %{https://rubygems.org/}) { |f| f.read(1024) }'
 
       - name: Debug
         if: failure()
