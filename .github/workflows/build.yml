@@ -30,13 +30,14 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
 
-      - name: Test
+      - name: Setup vcpkg
         run: |
-          echo "${env:VCPKG_INSTALLATION_ROOT}"
-          echo "${env:VCPKG_ROOT}"
-          dir "${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows"
-          dir "${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\tools\pkgconf\pkgconf.exe"
-          cat "D:/ruby-head-x64-mswin64_140/lib/ruby/4.1.0+6/x64-mswin64_140/rbconfig.rb"
+          echo @"
+          INCLUDE=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\include:${env:INCLUDE}
+          LIB=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\lib:${env:LIB}
+          PKG_CONFIG=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\tools\pkgconf\pkgconf.exe
+          PKG_CONFIG_PATH=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\lib\pkgconfig
+          "@ | Tee-Object -FilePath "${env:GITHUB_ENV}" -Append -Encoding UTF8
 
       - name: Test
         run: |
