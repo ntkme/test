@@ -30,6 +30,8 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
 
-      - name: RbConfig
+      - name: Test
         run: |
-          ruby -e "pp RbConfig::CONFIG"
+          $Env:PKG_CONFIG = "$VCPKG_INSTALLATION_ROOT/tools/pkgconf/pkgconf.exe"
+
+          gem install fiddle
