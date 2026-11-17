@@ -33,7 +33,12 @@ jobs:
       - name: Test
         run: |
           gem install --platform ruby openssl
-          
+
+      - name: Version
+        run: |
+          ruby -ropenssl -e 'puts OpenSSL::OPENSSL_VERSION'
+          ruby -ropenssl -e 'puts OpenSSL::OPENSSL_LIBRARY_VERSION'
+
       - name: Debug
         if: failure()
         run: echo
