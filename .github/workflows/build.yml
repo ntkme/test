@@ -20,26 +20,16 @@ jobs:
         os:
           - windows-latest
         ruby-version:
-          - ruby
+          - mswin
 
     steps:
 
       - name: Setup ruby
         if: matrix.ruby-version
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1.338.0
         with:
           ruby-version: ${{ matrix.ruby-version }}
 
-      # - name: Test
-      #   run: |
-      #     gem install --platform ruby openssl
-
-      - name: Version
+      - name: RbConfig
         run: |
-          ruby -ropenssl -e 'puts OpenSSL::OPENSSL_VERSION'
-          ruby -ropenssl -e 'puts OpenSSL::OPENSSL_LIBRARY_VERSION'
-          ruby -ropen-uri -e 'puts URI.send(:open, %{https://rubygems.org/}) { |f| f.read(1024) }'
-
-      - name: Debug
-        if: failure()
-        run: echo
+          ruby -e "pp RbConfig::CONFIG"
