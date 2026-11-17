@@ -41,10 +41,7 @@ jobs:
 
       - name: Test
         run: |
-          gem install fiddle
-        env:
-          CONFIGURE_ARGS: --with-opt-dir=C:\vcpkg\installed\x64-windows
-          PKG_CONFIG: C:\vcpkg\installed\x64-windows\tools\pkgconf\pkgconf.exe
+          gem install --verbose fiddle
 
       - name: Debug
         if: failure()
