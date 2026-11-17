@@ -36,6 +36,7 @@ jobs:
 
       - name: Test
         run: |
-          $Env:PKG_CONFIG = "${env:VCPKG_INSTALLATION_ROOT}/installed/x64-windows/tools/pkgconf/pkgconf.exe"
+          $env:CONFIGURE_ARGS = "--with-opt-dir=${env:VCPKG_INSTALLATION_ROOT}/installed/x64-windows"
+          echo "${env:CONFIGURE_ARGS}"
 
           gem install fiddle
