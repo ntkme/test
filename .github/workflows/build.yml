@@ -47,4 +47,4 @@ jobs:
 
       - name: Debug
         if: failure()
-        run: cat D:/ruby-head-x64-mswin64_140/lib/ruby/gems/4.1.0+6/gems/fiddle-1.1.8/ext/fiddle/Makefile
+        run: cat D:/ruby-head-x64-mswin64_140/lib/ruby/gems/4.1.0+6/build_info/fiddle-1.1.8.mkmf.log
