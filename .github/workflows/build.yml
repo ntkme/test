@@ -33,6 +33,7 @@ jobs:
       - name: Test
         run: |
           echo "${env:VCPKG_INSTALLATION_ROOT}"
+          eccho "${env:VCPKG_ROOT}
           dir "${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows"
           dir "${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\tools\pkgconf\pkgconf.exe"
           cat "D:/ruby-head-x64-mswin64_140/lib/ruby/4.1.0+6/x64-mswin64_140/rbconfig.rb"
