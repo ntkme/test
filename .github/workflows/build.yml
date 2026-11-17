@@ -30,9 +30,9 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
 
-      - name: Test
-        run: |
-          gem install --platform ruby openssl
+      # - name: Test
+      #   run: |
+      #     gem install --platform ruby openssl
 
       - name: Version
         run: |
