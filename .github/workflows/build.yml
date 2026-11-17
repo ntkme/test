@@ -33,10 +33,11 @@ jobs:
       - name: Test
         run: |
           echo "${env:VCPKG_INSTALLATION_ROOT}"
+          dir "${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows"
 
       - name: Test
         run: |
-          $env:CONFIGURE_ARGS = "--with-opt-dir=${env:VCPKG_INSTALLATION_ROOT}/installed/x64-windows"
+          $env:CONFIGURE_ARGS = "--with-opt-dir=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows"
           echo "${env:CONFIGURE_ARGS}"
 
           gem install fiddle
