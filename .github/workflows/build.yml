@@ -47,4 +47,9 @@ jobs:
 
       - name: Debug
         if: failure()
-        run: cat D:/ruby-head-x64-mswin64_140/lib/ruby/gems/4.1.0+6/build_info/fiddle-1.1.8.mkmf.log
+        run: |
+          $env:CONFIGURE_ARGS = "--with-opt-dir=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows"
+          echo "${env:CONFIGURE_ARGS}"
+          $env:PKG_CONFIG = "${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\tools\pkgconf\pkgconf.exe"
+          echo "${env:PKG_CONFIG}"
+          ruby -d D:/ruby-head-x64-mswin64_140/lib/ruby/gems/4.1.0+6/gems/fiddle-1.1.8/ext/fiddle/extconf.rb
