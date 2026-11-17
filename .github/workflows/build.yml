@@ -32,10 +32,10 @@ jobs:
 
       - name: Test
         run: |
-          echo "$VCPKG_INSTALLATION_ROOT"
+          echo "${env:VCPKG_INSTALLATION_ROOT}"
 
       - name: Test
         run: |
-          $Env:PKG_CONFIG = "$VCPKG_INSTALLATION_ROOT/installed/x64-windows/tools/pkgconf/pkgconf.exe"
+          $Env:PKG_CONFIG = "${env:VCPKG_INSTALLATION_ROOT}/installed/x64-windows/tools/pkgconf/pkgconf.exe"
 
           gem install fiddle
