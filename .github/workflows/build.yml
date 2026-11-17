@@ -36,7 +36,6 @@ jobs:
           INCLUDE=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\include;${env:INCLUDE}
           LIB=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\lib;${env:LIB}
           PKG_CONFIG=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\tools\pkgconf\pkgconf.exe
-          _PKG_CONFIG_PATH=${env:VCPKG_INSTALLATION_ROOT}\installed\x64-windows\lib\pkgconfig
           "@ | Tee-Object -FilePath "${env:GITHUB_ENV}" -Append -Encoding UTF8
 
       - name: Test
